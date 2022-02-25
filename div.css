@@ -1,4 +1,113 @@
-.divVert{
+.vertDiv {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     
+    margin: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.horisDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:flex-start;
+    
+    margin: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.divMainReg {
+    background-color: rgb(34, 34, 34);
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+.divLogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    
+    margin: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.orangeLine {
+    background-color: orange;
+    padding: 4px;
+}
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    margin: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: 1px ridge rgb(65, 65, 65);
+    background-color:rgb(241, 241, 241);
+}
+.divGray {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+
+    background-color: rgb(241, 241, 241);
+}
+.divInHor {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items:center;
+}
+.divInVert {
+    display: flex;
+    flex-direction: column;
+    justify-items: space-around;
+    align-items: flex-start;
+
+    margin: 2%;
+}
+.divInVertSred {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+.divInVertSred:last-child
+{
+    margin: 0;
+}
+.divInVertSred:first-child{
+    margin: 0;
+}
+.divFooterHor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    background-color:rgb(34, 34, 34)
+}
+.divFooterVert {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width:25%;
+    
+    margin: 3%;
+}
+.divPool {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

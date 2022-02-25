@@ -1,0 +1,89 @@
+.navigationText {
+    color:rgb(65, 65, 65);
+}
+.navigationUl {
+    color:rgb(65, 65, 65);
+}
+.aOrange {
+    text-decoration: none;
+    color: orange;
+    margin-top: 3%;
+}
+.imgIn {
+    margin-right: 3%;
+}
+.imgInSred {
+    filter: drop-shadow(0px 1px 15px rgb(121, 121, 121));
+    border: 5px solid white;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+.h3Gray {
+    white-space: nowrap;
+}
+.h3Footer {
+    color: rgb(100, 100, 100);
+    margin-bottom: 5%;
+}
+.h4Footer {
+    color:rgb(170, 170, 170);
+    white-space: normal;
+}
+.h5Footer {
+    color: rgb(170, 170, 170);
+}
+.h4Pool {
+    color: #afafaf;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.aFooter {
+    color: rgb(170, 170, 170);
+    font-size: large;
+}
+.ulFooter {
+    padding-left: 0;
+    padding-right: 5%;
+    color: rgb(170, 170, 170);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.liFooter {
+    font-size: smaller;
+    line-height:1;
+    text-transform:uppercase;
+    white-space:nowrap;
+    padding-right: 50%;
+    margin-right: 0;
+    border-right:0;
+    padding-top:2px;
+    list-style-type: none;
+    margin-bottom:5%;
+    padding-bottom: 2%;
+    border-bottom: 1px  solid;
+}
+.liFooter:not(:last-child) {
+    padding-right:50%;
+    margin-right: 0;
+    border-right:0;
+    padding-top:2px;
+    list-style-type: none;
+    margin-bottom:5%;
+    padding-bottom: 2%;
+    border-bottom: 1px  solid;
+}
+.darck_input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: smaller;
+    background-color:rgb(70, 70, 70);
+}
+.darck_input[type=button] {
+    background-color:rgb(70, 70, 70);
+    color:orange;
+}
