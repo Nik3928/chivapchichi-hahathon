@@ -1,4 +1,3 @@
-from sympy import true
 from point import Point
 
 class Line:

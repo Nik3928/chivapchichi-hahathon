@@ -1,4 +1,4 @@
-from queue import Queue
+from queue import PriorityQueue
 from graph import Graph
 from line import Line
 from point import Point
@@ -46,11 +46,12 @@ for i in range(8):
     graph_d_e.add_wall(Line(Point(29.5,8+i),Point(29.5,9+i)),1)
 
 def find(graph,start,goal):
-    frontier = Queue()
-    frontier.put(start)
-
+    frontier = PriorityQueue()
+    frontier.put(start, 0)
     came_from = dict()
+    cost_so_far = dict()
     came_from[start] = None
+    cost_so_far[start] = 0
 
     found = False
 
@@ -58,13 +59,14 @@ def find(graph,start,goal):
         current = frontier.get()
 
         if current == goal:
-            #print('found')
             found = True
-            break           
-
+        
         for next in graph.neighbors(current):
-            if next not in came_from:
-                frontier.put(next)
+            new_cost = cost_so_far[current] + graph.cost(current, next)
+            if next not in cost_so_far or new_cost < cost_so_far[next]:
+                cost_so_far[next] = new_cost
+                priority = new_cost
+                frontier.put(next, priority)
                 came_from[next] = current
 
     current = goal

@@ -15,6 +15,18 @@ class Graph:
     def add_wall(self,wall,lev):
         self.walls[lev].append(wall)
 
+    def cost(self,pos1,pos2):
+        x1,y1,z1 = pos1.split('-')
+        x1 = int(x1)
+        y1 = int(y1)
+        z1 = int(z1)
+        x2,y2,z2 = pos2.split('-')
+        x2 = int(x2)
+        y2 = int(y2)
+        z2 = int(z2)
+        val = abs(x1-x2) + abs(y1-y2) + 27*abs(z1-z2)
+        return val
+
     def neighbors(self,pos):
         x,y,z = pos.split('-')
         x = int(x)
