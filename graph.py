@@ -42,7 +42,7 @@ class Graph:
                 return True
         return False
 
-    def neighbors(self,pos):
+    def neighbors(self,pos,walls):
         x,y,z = pos.split('-')
         x = int(x)
         y = int(y)
@@ -54,7 +54,10 @@ class Graph:
                 if wall.intersect(Line(Point(x,y),Point(x-1,y))):
                     intersect = True
             if not intersect:
-                if self.near(f"{x-1}-{y}-{z}"):
+                if walls:
+                    if self.near(f"{x-1}-{y}-{z}"):
+                        neighs.append(f"{x-1}-{y}-{z}")
+                else:
                     neighs.append(f"{x-1}-{y}-{z}")
         if (y > 0):
             intersect = False
@@ -62,7 +65,10 @@ class Graph:
                 if wall.intersect(Line(Point(x,y),Point(x,y-1))):
                     intersect = True
             if not intersect:
-                if self.near(f"{x}-{y-1}-{z}"):
+                if walls:
+                    if self.near(f"{x}-{y-1}-{z}"):
+                        neighs.append(f"{x}-{y-1}-{z}")
+                else:
                     neighs.append(f"{x}-{y-1}-{z}")
         if (x < self.x - 1):
             intersect = False
@@ -70,7 +76,10 @@ class Graph:
                 if wall.intersect(Line(Point(x,y),Point(x+1,y))):
                     intersect = True
             if not intersect:
-                if self.near(f"{x+1}-{y}-{z}"):
+                if walls:
+                    if self.near(f"{x+1}-{y}-{z}"):
+                        neighs.append(f"{x+1}-{y}-{z}")
+                else:
                     neighs.append(f"{x+1}-{y}-{z}")
         if (y < self.y - 1):
             intersect = False
@@ -78,13 +87,22 @@ class Graph:
                 if wall.intersect(Line(Point(x,y),Point(x,y+1))):
                     intersect = True
             if not intersect:
-                if self.near(f"{x}-{y+1}-{z}"):
+                if walls:
+                    if self.near(f"{x}-{y+1}-{z}"):
+                        neighs.append(f"{x}-{y+1}-{z}")
+                else:
                     neighs.append(f"{x}-{y+1}-{z}")
         if (z > 0):
-            if self.near(f"{x}-{y}-{z-1}"):
+            if walls:
+                if self.near(f"{x}-{y}-{z-1}"):
+                    neighs.append(f"{x}-{y}-{z-1}")
+            else:
                 neighs.append(f"{x}-{y}-{z-1}")
         if (z < self.z - 1):
-            if self.near(f"{x}-{y}-{z+1}"):
+            if walls:
+                if self.near(f"{x}-{y}-{z+1}"):
+                    neighs.append(f"{x}-{y}-{z+1}")
+            else:
                 neighs.append(f"{x}-{y}-{z+1}")
         return neighs
         
