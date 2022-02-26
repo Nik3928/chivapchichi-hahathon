@@ -8,7 +8,57 @@
     <title>canvas</title>
 </head>
 <body>
-    <div id="container"></div>
+    <input id="nFloors" type="number" value="1" min="1" max="10">
+    <label for="nFloors">Number of floors</label>
+    <br>
+    <br>
+    <input type="radio" name="measure" id="m" checked> 
+    <label for="m">meters</label>
+    <input type="radio" name="measure" id="mm">
+    <label for="mm">millimeters</label>
+    <div id="size"></div>
+    <br>
+    <input type="number" name="electronic" id="cabels" min="1" max="10" step="1" value="1">
+    <label for="length">cabels</label>
+    <input type="number" name="electronic" id="consumers" min="1" max="10" step="1" value="1">
+    <label for="length">consumers</label>
+    <br><br>
+    <button id="gen">Generate!</button>
+    <br><br>
+    <script>
+
+        const radioButtons = document.querySelectorAll('input[name="measure"]');
+        for (let i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].addEventListener("change", () => {
+                let measure;
+                for (const radioButton of radioButtons) {
+                    if (radioButton.checked) {
+                        measure = radioButton.id;
+                        break;
+                    }
+                }
+                let min = 5, max = 100, step = 1, valueT = 5, mult = 1;
+                let minF = 0.01, maxF = 1, stepF = 0.001, valueF = 0.01;
+                
+                if (measure == "mm") {
+                    mult = 1000;
+                } else if (measure == "m") mult = 1;
+                const group = document.querySelector("#size");
+                group.innerHTML = `
+                    <input type="number" name="size" id="length" min="${min*mult}" max="${max*mult}" step="${step*mult}" value="${valueT*mult}">
+                    <label for="length">length</label>
+                    <input type="number" name="size" id="width" min="${min*mult}" max="${max*mult}" step="${step*mult}" value="${valueT*mult}">
+                    <label for="width">width</label>
+                    <input type="number" name="floorWidth" id="floorWidth" min="${minF*mult}" max="${maxF*mult}" step="${stepF*mult}" value="${valueF*mult}">
+                    <label for="width">floor width</label>`;
+            });
+        }
+        const event = new Event('change');
+        radioButtons[0].dispatchEvent(event);
+    </script>
+    <div id="containerOfGrids"></div>
+    <!-- <div id="container" style= "margin: 10px"></div> -->
     <script src="src/index.js"></script>
+    <script src="src/genFloorGrid.js"></script>
 </body>
 </html>
