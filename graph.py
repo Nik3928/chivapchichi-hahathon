@@ -2,10 +2,12 @@ from line import Line
 from point import Point
 
 class Graph:
-    def __init__(self,size):
+    def __init__(self,size,heights):
         self.x = size[0]
         self.y = size[1]
-        self.z = size[2]
+        self.z = size[3]
+        self.floor_width = size[2]
+        self.heights = heights
 
         self.walls = {}
         self.walkwalls = {}
@@ -29,7 +31,9 @@ class Graph:
         x2 = int(x2)
         y2 = int(y2)
         z2 = int(z2)
-        val = abs(x1-x2) + abs(y1-y2) + 27*abs(z1-z2)
+        val = abs(x1-x2) + abs(y1-y2) + abs(z1-z2)*self.floor_width
+        for i in range(z1,z2):
+            val += self.heights[i]
         return val
     
     def near(self,point):
