@@ -32,6 +32,8 @@ class Graph:
         y2 = int(y2)
         z2 = int(z2)
         val = abs(x1-x2) + abs(y1-y2) + abs(z1-z2)*self.floor_width
+        if z1 > z2:
+            z2,z1 = z1,z2
         for i in range(z1,z2):
             val += self.heights[i]
         return val

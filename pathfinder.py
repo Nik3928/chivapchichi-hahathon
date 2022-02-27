@@ -59,11 +59,13 @@ class PF:
         # print(f"From {goal} to {start}") 
         if found:
             # print(current)
-            arr.append(goal.split('-'))
+            goal_tmp = goal.split('-')
+            arr.append((int(goal_tmp[0]),int(goal_tmp[1]),int(goal_tmp[2])))
             while not current == start:
                 current = came_from[current]
                 # print(current)
-                arr.append(current.split('-'))
+                current_tmp = current.split('-')
+                arr.append((int(current_tmp[0]),int(current_tmp[1]),int(current_tmp[2])))
             return cost_so_far[goal],arr[::-1]
         else:
             # print("Not found")

@@ -316,14 +316,16 @@ class Grid {
     // console.log(rooms);
   }
 
-  drawRoute(route) {
+  drawRoute(layer, route) {
     for(let i = 0; i < route.length - 1; i ++) {
+      let pos1 = gridToAbsolute({ x: route[i][0], y: route[i][1] });
+      let pos2 = gridToAbsolute({ x: route[i + 1][0], y: route[i + 1][1] });
       let line = new Konva.Line({
-        points: [route[i][0], route[i][1], route[i+1][0], route[i+1][1]],
-        stroke: 'lime',
-        strokeWidth: 2
+        points: [pos1.x, pos1.y, pos2.x, pos2.y],
+        stroke: 'green',
+        strokeWidth: 10
       })
-      this.routeLayer.add(line);
+      this.restrictedWallLayers[layer].add(line);
     }
   }
 

@@ -39,7 +39,31 @@ const sendData = (floors, data) => {
         body: JSON.stringify(postData)
     }).then(async (data) => {
         let json = await data.json();
-
+        for (let [nodeType, routes] of Object.entries(json)) {
+            console.log(`nodeType: ${nodeType}, routes: ${routes}`);
+            console.log(routes);
+            for (let route of Object.values(routes)) {
+                let {
+                    path
+                } = route;
+                let currentFloor = path[0][2];
+                let i = 0;
+                while (i < path.length) {
+                    console.log(path);
+                    console.log(i)
+                    let lines = [];
+                    currentFloor = path[i][2];
+                    while (i < path.length && currentFloor == path[i][2]) {
+                        console.log("-")
+                        console.log(path);
+                        console.log(i)
+                        lines.push(path[i]);
+                        i++;
+                    }
+                    floors[currentFloor].grid.drawRoute(nodeType, lines);
+                }
+            }
+        }
     })
     // console.log(postData);
 }
@@ -97,15 +121,15 @@ genButton.addEventListener('click', () => {
         createNodeButton(`Receiver ${i + 1}`, `receiver_${i}`);
     }
     createNodeButton('Source', 'source')
-    for (let i = 1; i <= data.floorCount; i++) {
+    for (let i = 0; i < data.floorCount; i++) {
         container.insertAdjacentHTML('beforeend', `
-        <br> <p>Floor №${i}</p> 
+        <br> <p>Floor №${i + 1}</p> 
         <input type="number" name="size" id="floorHeight${i}" min="2" max="30" step="1" value="2">
         <label for="floorHeight${i}">Floor height</label>
         <div id="container${i}">Floor №${i}</div>
         `);
         let floorHeightField = document.getElementById(`floorHeight${i}`);
-        floorHeightField.onchange = () => {
+        floorHeightField.oninput = () => {
             floors[i].floorHeight = Number(floorHeightField.value);
         }
         floors.push({
@@ -129,7 +153,7 @@ genButton.addEventListener('click', () => {
             }
         })
     }
-    //container.appendChild(sendButton);
+    container.appendChild(sendButton);
     //for (let i = 1; i <= data.floorCount; i++) {
     //}
 
