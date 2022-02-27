@@ -18,14 +18,16 @@ class PF:
                 # horizontal wall
                 self.graph.add_wall(Line(
                     Point(wall[0],wall[1]-0.5),
-                    Point(wall[2],wall[3]-0.5)
-                ))
+                    Point(wall[2],wall[3]-0.5),
+                ),
+                wall[4])
             if wall[0] == wall[2]:
                 # vertical wall
                 self.graph.add_wall(Line(
                     Point(wall[0]-0.5,wall[1]),
-                    Point(wall[2]-0.5,wall[3])
-                ))
+                    Point(wall[2]-0.5,wall[3]),
+                ),
+                wall[4])
 
     def find(self,start,goal,walls=False):
         frontier = PriorityQueue()
@@ -57,6 +59,7 @@ class PF:
         # print(f"From {goal} to {start}") 
         if found:
             # print(current)
+            arr.append(goal.split('-'))
             while not current == start:
                 current = came_from[current]
                 # print(current)

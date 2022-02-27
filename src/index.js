@@ -72,6 +72,7 @@ class Grid {
   gridLayer = new Konva.Layer();
   deviceLayer = new Konva.Layer();
   roomLayer = new Konva.Layer();
+  routeLayer = new Konva.Layer();
   restrictedWallLayers = {};
 
   constructor(height, width, container_name) {
@@ -220,9 +221,6 @@ class Grid {
   }
 
   makeRestrictedWall(pos2) {
-    /*
- *    ==== ЭТО ПИЗДЕЦ, НЕ ТРОГАЙ ====
- */
     const createResrictedWall = (pos1, pos2) => {
       let absPos1 = gridToAbsolute(pos1),
         absPos2 = gridToAbsolute(pos2);
@@ -316,6 +314,17 @@ class Grid {
     this.resetSelection();
 
     // console.log(rooms);
+  }
+
+  drawRoute(route) {
+    for(let i = 0; i < route.length - 1; i ++) {
+      let line = new Konva.Line({
+        points: [route[i][0], route[i][1], route[i+1][0], route[i+1][1]],
+        stroke: 'lime',
+        strokeWidth: 2
+      })
+      this.routeLayer.add(line);
+    }
   }
 
 }

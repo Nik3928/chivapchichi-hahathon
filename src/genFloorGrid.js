@@ -28,9 +28,20 @@ const sendData = (floors, data) => {
         source,
         receivers,
         restrictedWalls,
-        size: [data.size.length, data.size.width, data.size.floorWidth, floors.length]
+        size: [data.size.length, data.size.width, data.size.floorWidth, floors.length],
+        heights
     }
-    console.log(postData);
+    fetch("/pf", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    }).then(async (data) => {
+        let json = await data.json();
+
+    })
+    // console.log(postData);
 }
 
 let data = {};
@@ -41,7 +52,11 @@ genButton.addEventListener('click', () => {
         data[dataElement.id] = dataElement.value;
     }
     let scale = Number(document.querySelector("input[name=units]:checked").value);
-    let { length, width, floorWidth } = data;
+    let {
+        length,
+        width,
+        floorWidth
+    } = data;
     length /= scale;
     width /= scale;
     floorWidth /= scale;
@@ -108,13 +123,14 @@ genButton.addEventListener('click', () => {
     sendButton.onclick = () => {
         sendData(floors, {
             size: {
-                length, width, floorWidth
+                length,
+                width,
+                floorWidth
             }
         })
     }
-    container.appendChild(sendButton);
+    //container.appendChild(sendButton);
     //for (let i = 1; i <= data.floorCount; i++) {
     //}
 
 })
-
