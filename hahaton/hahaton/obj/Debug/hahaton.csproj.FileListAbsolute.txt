@@ -1,0 +1,11 @@
+C:\Users\lol\source\repos\hahaton\hahaton\bin\Debug\hahaton.exe.config
+C:\Users\lol\source\repos\hahaton\hahaton\bin\Debug\hahaton.exe
+C:\Users\lol\source\repos\hahaton\hahaton\bin\Debug\hahaton.pdb
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.csproj.AssemblyReference.cache
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.csproj.SuggestedBindingRedirects.cache
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.Form1.resources
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.Properties.Resources.resources
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.csproj.GenerateResource.cache
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.csproj.CoreCompileInputs.cache
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.exe
+C:\Users\lol\source\repos\hahaton\hahaton\obj\Debug\hahaton.pdb
